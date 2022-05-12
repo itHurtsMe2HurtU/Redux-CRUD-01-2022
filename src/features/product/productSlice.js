@@ -19,8 +19,10 @@ export const productSlice = createSlice({
             // to edit/ update product
         },
 
-        deleteProduct: (state) => {
+        deleteProduct: (state,action) => {
+            console.log("delete product action called!!",action);
             // to remove/ delete product
+            state.products = state.products.filter(product => product.id != action.payload)
         },
     }
 })
